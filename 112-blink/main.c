@@ -16,7 +16,7 @@ int main()
         sleep_ms(250);
         gpio_put(LED_PIN, 0.5);
         sleep_ms(250);
-        gpio_put(LED_PIN, 0);
+        gpio_put(LED_PIN, 0); // изменения для коммита
         sleep_ms(1000);
     }
 }
