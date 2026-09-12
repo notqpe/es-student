@@ -10,13 +10,10 @@ int main()
 
     while (1)
     {
-        gpio_put(LED_PIN, 0.5);
-        sleep_ms(250);
         gpio_put(LED_PIN, 1);
         sleep_ms(250);
-        gpio_put(LED_PIN, 0.5);
-        sleep_ms(250);
-        gpio_put(LED_PIN, 0); // изменения для коммита
+
+        gpio_put(LED_PIN, 0);
         sleep_ms(1000);
     }
 }
