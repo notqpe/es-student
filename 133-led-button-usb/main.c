@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 #include "hardware/regs/addressmap.h"
@@ -14,8 +15,16 @@ bool get_button_debounce(uint pin)
     return state && gpio_get(pin);
 }
 
+void set_led(bool on)
+{
+    gpio_put(LED_PIN, on);
+    printf("led %s\n", on ? "on" : "off");
+}
+
 int main()
 {
+    stdio_init_all();
+
     gpio_init(LED_PIN);
     gpio_set_dir(LED_PIN, GPIO_OUT);
 
@@ -33,7 +42,7 @@ int main()
         if (previous == true && current == false)
         {
             led = !led;
-            gpio_put(LED_PIN, led);
+            set_led(led);
         }
 
         previous = current;
